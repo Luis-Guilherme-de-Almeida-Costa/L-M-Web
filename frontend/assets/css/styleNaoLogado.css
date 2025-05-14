@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-subsections {
+    height: 77vh;
+    display: flex;
+    width: 80vw;
+}
+
+.ad-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobre-nos-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sobre-nos-content {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#container-home {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    background-image: url("../Images/Vector.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#banner {
+    
+}
+
+

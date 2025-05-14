@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0px;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(white, #dedede);
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin-left: -10px;
+    margin-top: -10px;
+    margin-right: -8px;
+}
+
+header div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 225px;
+}
+
+header img{
+    margin-left: 10px;
+    width: 125px;
+    padding: 10px;
+}
+
+ul{
+    display:flex;
+    justify-content: space-around;
+    list-style: none;
+    width: 30%;
+    padding: 0px;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+}
+
+blue {
+    color: #32BBFF;
+}
+
+.botao{
+    height: 40px;
+    width: 175px;
+    border: none;
+    background-color: #32bbff;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px 0px;
+    transition: box-shadow 0.2s ease;
+    font-size: 20px;
+}
+
+.botao:hover{
+    box-shadow: 0px 0px 10px black;
+    transition: box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.botao:active{
+    box-shadow: 0px 0px 0px 0px;
+    cursor: pointer;
+}
+
+.inputs {
+    height: 35px;
+    width: 70%;
+    border: none;
+    background-color: #dedede;
+    color:#000000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.link{
+    transition: color 0.5s ease;
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover{
+    color: #32bbff;
+    transition: color 0.25s ease;
+}
+
+#sign-in {
+    text-align: center;
+    padding: 4px 15px 4px 15px;
+    background-color: #404040;
+    border-radius: 8px;
+    color: white;
+}
+
+#sign-up {
+    padding: 2px 15px 2px 15px;
+    border: 2.5px solid #404040;
+    border-radius: 8px;
+}
+
+@keyframes animacaoEsquerda{
+    from{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes animacaoDireita{
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+p{
+    font-size: smaller;
+    color: rgb(97, 97, 97);
+}
