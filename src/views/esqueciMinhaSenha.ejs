@@ -1,0 +1,17 @@
+<%- include(includes/headerNaoLogadoStart) %>
+    <link rel="stylesheet" href="../../frontend/assets/css/styleAutenticacao.css">
+    <link rel="stylesheet" href="../../frontend/assets/css/styleGeneral.css">
+<%- include(includes/headerNaoLogadoEnd) %>  
+<%- include(includes/nav) %> 
+    <section class="container">
+        <div class="titulo-autenticacao">
+            <h1><blue>ESQUECI MINHA SENHA</blue><h1/>
+        </div>
+        <form class="container-esqueceu" id="formEsqueceu">
+            <label for="emailInput" class="titulo-inputs">Email</label>
+            <input type="email" class="inputs" id="esqueceuInput" name="email" required>
+            <button type="submit" class="botao" id="loginBtn">Enviar</button>
+            <p>© 2025 - L&M</p>
+        </form>
+    </section>
+<%- include(includes/footerSemContato)%>

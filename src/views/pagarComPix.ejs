@@ -1,0 +1,23 @@
+<%- include(includes/headerNaoLogadoStart) %>
+    <link rel="stylesheet" href="../../css_naoLogado/styleGeneral.css">
+    <link rel="stylesheet" href="../../css_naoLogado/cssPagamento/pagamento.css">
+    <link rel="stylesheet" href="../../css_naoLogado/cssPagamento/pagamentoComBoleto.css">
+<%- include(includes/headerNaoLogadoEnd) %>
+
+    <section>
+        <h1>Pagar com PIX</h1>
+        <form class="formPagamento">
+            <div class="cadastroFormulario">
+                <label for="nome">Nome completo:</label>
+                <input type="text" name="nome" placeholder="Digite seu nome" required>
+            </div>
+
+            <div class="cadastroFormulario">
+
+                <label for="telefone">CPF:</label>
+                <input type="text" name="telefone" placeholder="Digite seu Telefone" required>
+            </div>
+        </form>
+        <button style="align-self: center;" class="botao">PAGAR</button>
+    </section>
+<%- include(includes/footerSemContato)%>

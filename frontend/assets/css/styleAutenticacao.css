@@ -26,6 +26,7 @@ O container possui um tamanho diferente na página login, basta utilizar o crân
     height: 550px;
     display: flex;
     flex-direction: column;
+    justify-content: end;
     align-items: center;
     background-color: white;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
@@ -38,6 +39,19 @@ O container possui um tamanho diferente na página login, basta utilizar o crân
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: end;
+    background-color: white;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.container-esqueceu{
+    width: 350px;
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
     background-color: white;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
@@ -66,12 +80,7 @@ O container possui um tamanho diferente na página login, basta utilizar o crân
     margin-bottom: 2.5%;
 }
 
-#formCadastro {
-    display: flex;
-    justify-content: end;
-}
-
-#formLogin {
-    display: flex;
-    justify-content: end;
+#esqueceuInput {
+    margin-top: 10px;
+    margin-bottom: 20px;
 }

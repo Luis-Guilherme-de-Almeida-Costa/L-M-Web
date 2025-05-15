@@ -1,0 +1,30 @@
+<%- include(includes/headerNaoLogadoStart) %>
+    <link rel="stylesheet" href="../../css_naoLogado/styleGeneral.css">
+    <link rel="stylesheet" href="../../css_naoLogado/cssPagamento/pagamento.css">
+<%- include(includes/headerNaoLogadoEnd) %>
+    
+    <section class="paymentContainer">
+        <h1 class="mainH1">Escolha a sua forma de pagamento</h1>
+        <div class="teste">
+            <button onclick="window.location.href='./pagarComCartao.html'" class="btnFormaDePagamento">
+                <img src="../../Images/image 2.png" alt="">
+                <h1>Cartão de credito</h1>
+                <img src="../../Images/Sort Right.png" alt="">
+            </button>
+        </div>
+        <div class="teste">
+            <button onclick="window.location.href='./pagarComBoleto.html'" class="btnFormaDePagamento">
+                <img src="../../Images/Barcode.png" alt="">
+                <h1>Boleto</h1>
+                <img src="../../Images/Sort Right.png" alt="">
+            </button>
+        </div>
+        <div class="teste">
+            <button onclick="window.location.href='./pagarComPix.html'" class="btnFormaDePagamento">
+                <img src="../../Images/Pix.png" alt="">
+                <h1>Pix</h1>
+                <img src="../../Images/Sort Right.png" alt="">
+            </button>
+        </div>
+    </section>
+<%- include(includes/footerSemContato)%>
