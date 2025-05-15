@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(white, #dedede);
+    margin: 8px;
+}
+
+header{
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin-left: -10px;
+    margin-top: -10px;
+    margin-right: -8px;
+}
+
+header div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 225px;
+}
+
+header img{
+    margin-left: 10px;
+    width: 125px;
+    padding: 10px;
+}
+
+ul{
+    display:flex;
+    justify-content: space-around;
+    list-style: none;
+    width: 30%;
+    padding: 0px;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+}
+
+blue {
+    color: #32BBFF;
+}
+
+.botao{
+    height: 40px;
+    width: 175px;
+    border: none;
+    background-color: #32bbff;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px 0px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao:hover{
+    color: #b1e5ff;
+    transition: color 0.25s ease;
+    cursor: pointer;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover {
+    color:rgb(97, 97, 97);
+    transition: color 0.25s ease;
+}
+
+.inputs {
+    height: 35px;
+    width: 70%;
+    border: none;
+    background-color: #dedede;
+    color:#000000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+#sign-in {
+    text-align: center;
+    padding: 4px 15px 4px 15px;
+    background-color: #404040;
+    border-radius: 8px;
+    color: white;
+}
+
+#sign-up {
+    padding: 2px 15px 2px 15px;
+    border: 2.5px solid #404040;
+    border-radius: 8px;
+}
+
+.underline{
+    text-decoration: underline black;
+}
+
+@keyframes animacaoEsquerda{
+    from{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes animacaoDireita{
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+p{
+    font-size: smaller;
+    color: rgb(97, 97, 97);
+}
