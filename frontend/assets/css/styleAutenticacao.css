@@ -23,7 +23,7 @@ O container possui um tamanho diferente na página login, basta utilizar o crân
 
 .container-cadastro{
     width: 350px;
-    height: 550px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -76,7 +76,7 @@ O container possui um tamanho diferente na página login, basta utilizar o crân
 }
 
 #cadastroBtn{
-    margin-top: 5%;
+    margin-top: 2.5%;
     margin-bottom: 2.5%;
 }
 

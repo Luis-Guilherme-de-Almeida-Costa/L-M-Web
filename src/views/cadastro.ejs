@@ -7,7 +7,7 @@
         <div class="titulo-autenticacao">
             <h1><blue>CADASTRO</blue></h1>
         </div>
-        <form class="container-cadastro" id="formCadastro" action="http://localhost:3000/" method="POST">
+        <form class="container-cadastro" id="formCadastro" action="http://localhost:3000/register" method="POST">
             <label for="nomeInput" class="titulo-inputs">Nome</label>
             <input type="text" class="inputs" id="nomeInput" name="nome" required>
 
@@ -22,6 +22,8 @@
 
             <label for="confirmarSenhaInput" class="titulo-inputs">Confirmar Senha</label>
             <input type="password" class="inputs" id="confirmarSenhaInput" name="confirmarSenha" required>
+
+            <%- include('includes/messagesError'); %>
 
             <button type="submit" class="botao" id="cadastroBtn">CADASTRAR</button>
             <a class="underline link" style="margin-bottom: 10px;" href="/HTML/login.html">Já possuo conta!</a>

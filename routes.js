@@ -6,8 +6,8 @@ const cadastroController = require("./src/controllers/cadastroController");
 //const { loginRequired } = require('./src/middlewares/middleware');
 
 // Rotas da home
-route.get('/', cadastroController.index);
-route.post('/', cadastroController.store);
+route.get('/register', cadastroController.index);
+route.post('/register', cadastroController.store);
 
 // Rotas de login
 /*

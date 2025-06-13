@@ -115,6 +115,17 @@ blue {
     text-decoration: underline black;
 }
 
+.errorMsg{
+    background-color: rgb(255, 170, 170);
+    color: red;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 20px;
+}
+
 @keyframes animacaoEsquerda{
     from{
         opacity: 0;

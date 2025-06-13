@@ -5,8 +5,7 @@ exports.index = (req, res) => {
 }
 
 exports.store = async (req, res) => {
-    try{
-         
+    try{ 
         const response = await api.post('/auth/register/', {
             nome: req.body.nome,
             email: req.body.email,
@@ -14,12 +13,21 @@ exports.store = async (req, res) => {
             senha: req.body.senha
         });
         
-        console.log(response.data.message);
+        req.flash('success', response.data.message);
+
+        return req.session.save(function(){
+            return res.redirect(req.get('/login/') || '/login');
+        });
     } catch(error){
         if (error.response) {
             console.log(error.response.data.errors);
+
+            req.flash('errors', error.response.data.errors);
           } else {
-            alert('Erro desconhecido. Verifique a conexão com o servidor.');
+            req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
         }
+        req.session.save(function(){
+            return res.redirect(req.get('Referrer') || '/register');
+        });
     }
 };
