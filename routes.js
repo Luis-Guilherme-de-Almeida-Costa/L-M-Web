@@ -10,6 +10,7 @@ route.get('/register', cadastroController.index);
 route.post('/register', cadastroController.store);
 
 // Rotas de login
+// Arrumar as rotas junto com as do backend
 /*
 route.get('/login/index', loginController.index);
 route.post('/login/register', loginController.register);

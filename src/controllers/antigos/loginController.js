@@ -1,5 +1,5 @@
 const Login = require('../models/LoginModel');
-
+// Atualizar o controller com o axios e saber pra que cada uma desses exports servem
 exports.index = (req, res) => {
   if(req.session.user) return res.render('login-logado');
   return res.render('login');
