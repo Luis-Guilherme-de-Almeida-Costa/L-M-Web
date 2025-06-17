@@ -6,13 +6,39 @@ const cadastroController = require("./src/controllers/cadastroController");
 //const { loginRequired } = require('./src/middlewares/middleware');
 
 // Rotas da home
-route.get('/register', cadastroController.index);
-route.post('/register', cadastroController.store);
+route.get('/', homeSemLoginController.index);
+route.get('/home', homeLoginController.index);
+
+//Rota de pesquisa
+route.get('/home/search/index', searchController.index);
+
+//Rota de perfil
+route.get('/home/perfil/index', perfilController.index);
+
+//Rota de leitura
+route.get('/home/leitura/', leituraController.index)
 
 // Rotas de login
-// Arrumar as rotas junto com as do backend
-// route.get('/login/index', loginController.index);
-// route.post('/login/login', loginController.login);
+route.get('/login/index', loginController.index);
+
+route.get('/register/index', cadastroController.index);
+route.post('/register/register', cadastroController.store);
+
+route.get('/login/esqueci/index', esqueciController.index);
+route.get('/login/esqueci/esqueci', esqueciController.post);
+
+//pagamento
+route.get('/home/pagamento/index', pagamentoController.index);
+
+route.get('/home/pagamento/boleto/index', boletoController.index);
+route.post('/home/pagamento/boleto/boleto', boletoController.store);
+
+route.get('/home/pagamento/cartao/index', cartaoController.index);
+route.post('/home/pagamento/cartao/cartao', cartaoController.store);
+
+route.get('/home/pagamento/pix/index', pixController.index);
+route.get('/home/pagamento/pix/pix', pixController.store);
+
 // route.get('/login/logout', loginController.logout);
 
 // Rotas de contato
