@@ -1,7 +1,7 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-  if(req.session.email) return res.render('/');
+  if(req.session.email) return res.render('homeSemLogin');
   return res.render('login', { path: 'A' });
 };
 
@@ -11,20 +11,21 @@ exports.store = async function(req, res) {
       email: req.body.email,
       senha: req.body.senha
     });
-    
-    req.session.email = response.data.message.email;
+
+    req.session.email = response.data.email;
     //req.session.token = response.data.message.token;
     req.session.save(function() {
       return res.redirect(req.get('/') || '/');
     });
   } catch(error) {
-    if (error.response) {
-            console.log(error.response.data.errors);
-            req.flash('errors', error.response.data.errors);
-          } else {
-            req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
-        }
-    return res.render('404');
+      if (error.response) {
+        req.flash('errors', error.response.data.errors);
+      } else {
+        req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
+      }
+      return req.session.save(function(){
+          return res.redirect(req.get('Referrer') || '/login/index');
+      });
   }
 };
 

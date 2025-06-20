@@ -5,12 +5,14 @@
             <h1><blue>LOGIN</blue><h1/>
         </div>
 
-        <form class="container-login" id="formLogin">
+        <form class="container-login" id="formLogin" action="http://localhost:3000/login/login" method="POST">
             <label for="emailInput" class="titulo-inputs">Email</label>
             <input type="email" class="inputs" id="emailInput" name="email" required>
 
             <label for="senhaInput" class="titulo-inputs">Senha</label>
             <input type="password" class="inputs" id="senhaInput" name="senha" required>
+
+            <%- include('includes/messagesError') %>
 
             <a class="link underline" id="linkEsqueci" style="margin-top: 10px; margin-bottom: 10px;" href="/login/esqueci/index">Esqueci minha senha</a>
 

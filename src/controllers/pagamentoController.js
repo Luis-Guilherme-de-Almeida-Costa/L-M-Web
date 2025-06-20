@@ -1,5 +1,5 @@
 exports.index = (req, res) => {
-    res.render("formaDePagamento");
+    res.render("formaDePagamento", { path: "A"});
 }
 
 exports.store = (req, res) => {

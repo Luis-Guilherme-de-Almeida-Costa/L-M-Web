@@ -8,7 +8,7 @@ exports.store = async (req, res) => {
     try{ 
         if(req.body.senha != req.body.confirmarSenha) {
             req.flash('errors', 'As senhas não são compatíveis.');
-            req.session.save(function(){
+            return req.session.save(function(){
                 return res.redirect(req.get('Referrer') || '/register/index');
             });
         }
@@ -23,7 +23,7 @@ exports.store = async (req, res) => {
         req.flash('success', response.data.message);
 
         return req.session.save(function(){
-            return res.redirect(req.get('/login/') || '/login');
+            return res.redirect('/login/index');
         });
     } catch(error){
         if (error.response) {
@@ -33,7 +33,7 @@ exports.store = async (req, res) => {
           } else {
             req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
         }
-        req.session.save(function(){
+        return req.session.save(function(){
             return res.redirect(req.get('Referrer') || '/register/index');
         });
     }

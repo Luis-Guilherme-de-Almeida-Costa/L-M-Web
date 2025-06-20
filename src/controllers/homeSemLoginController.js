@@ -1,3 +1,4 @@
 exports.index = (req, res) => {
-    res.render("homeSemLogin", { path: "I" });
+    console.log(req.session.email);
+    return res.render("homeSemLogin", { path: "I" });
 }

@@ -22,7 +22,7 @@ exports.csrfMiddleware = (req, res, next) => {
 exports.loginRequired = (req, res, next) => {
   if(!req.session.email) {
     req.flash('errors', 'Você precisa fazer o login.');
-    req.session.save(() => res.redirect('/'));
+    req.session.save(() => res.redirect('/login/index'));
     return;
   }
 
