@@ -1,7 +1,8 @@
 exports.middlewareGlobal = (req, res, next) => {
   res.locals.errors = req.flash('errors') || false;
   res.locals.success = req.flash('success');
-  res.locals.user = req.session.user;
+  res.locals.email = req.session.email;
+  res.locals.token = req.session.token;
   next();
 };
 
@@ -19,11 +20,17 @@ exports.csrfMiddleware = (req, res, next) => {
 };
 
 exports.loginRequired = (req, res, next) => {
-  if(!req.session.user) {
-    req.flash('errors', 'Você precisa fazer login.');
+  if(!req.session.email) {
+    req.flash('errors', 'Você precisa fazer o login.');
     req.session.save(() => res.redirect('/'));
     return;
   }
 
   next();
 };
+
+exports.assinaturaRequired = (req, res, next) => {
+  if(!req.session.assinatura) {
+    return;
+  }
+}

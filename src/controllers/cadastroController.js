@@ -6,6 +6,13 @@ exports.index = (req, res) => {
 
 exports.store = async (req, res) => {
     try{ 
+        if(req.body.senha != req.body.confirmarSenha) {
+            req.flash('errors', 'As senhas não são compatíveis.');
+            req.session.save(function(){
+                return res.redirect(req.get('Referrer') || '/register/index');
+            });
+        }
+
         const response = await api.post('/auth/register/', {
             nome: req.body.nome,
             email: req.body.email,
@@ -27,7 +34,7 @@ exports.store = async (req, res) => {
             req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
         }
         req.session.save(function(){
-            return res.redirect(req.get('Referrer') || '/register');
+            return res.redirect(req.get('Referrer') || '/register/index');
         });
     }
 };
