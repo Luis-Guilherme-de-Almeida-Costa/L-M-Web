@@ -29,8 +29,4 @@ exports.loginRequired = (req, res, next) => {
   next();
 };
 
-exports.assinaturaRequired = (req, res, next) => {
-  if(!req.session.assinatura) {
-    return;
-  }
-}
+// para verificar se o usuário tem assinatura ou não, basta criar um post na rest api que verifica utilizando o req.session.email!

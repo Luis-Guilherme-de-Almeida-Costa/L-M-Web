@@ -1,8 +1,8 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-  //if(req.session.user) return res.render('login-logado');
-  return res.render('login');
+  if(req.session.email) return res.render('/');
+  return res.render('login', { path: 'A' });
 };
 
 exports.store = async function(req, res) {
@@ -13,7 +13,7 @@ exports.store = async function(req, res) {
     });
     
     req.session.email = response.data.message.email;
-    req.session.token = response.data.message.token;
+    //req.session.token = response.data.message.token;
     req.session.save(function() {
       return res.redirect(req.get('/') || '/');
     });

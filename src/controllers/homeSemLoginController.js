@@ -1,3 +1,3 @@
 exports.index = (req, res) => {
-    res.render("homeSemLogin");
+    res.render("homeSemLogin", { path: "I" });
 }
