@@ -4,6 +4,17 @@ exports.index = (req, res) => {
   if(req.session.email) return res.render('homeSemLogin');
   return res.render('login', { path: 'A' });
 };
+/*
+C:\Users\Antenor53923246\Desktop\L-M\L-M-Rest_API\dist\controllers\loginController.js:46
+                errors: error.errors.map((err) => err.message)
+                                     ^
+
+TypeError: Cannot read properties of undefined (reading 'map')
+    at index (C:\Users\Antenor53923246\Desktop\L-M\L-M-Rest_API\dist\controllers\loginController.js:46:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+Erro da porra do login.
+*/
 
 exports.store = async function(req, res) {
   try {

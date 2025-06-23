@@ -1,0 +1,24 @@
+<header>
+    <img src="/assets/Images/logo.png" alt="" id="imgNav">
+    <nav>
+        <ul>
+           <li><a class="link" href="/">Home</a></li>
+           <%if(path) {%>
+                <%if(path == "A") {%>
+                     <li><a class="link" href="/">Sobre Nós</a></li>
+                     <li><a class="link" href="/">Preços</a></li>
+                     <li><a class="link" href="/">Contatos</a></li>
+                <% } else { %>
+                     <li><a class="link" href="#sobre-nos">Sobre Nós</a></li>
+                     <li><a class="link" href="#precos">Preços</a></li>
+                     <li><a class="link" href="#contatos">Contatos</a></li>
+                <% } %>  
+           <% } %>   
+        </ul>
+   </nav>
+   <div class="user-icon">
+    <a href="/usuario/info" class="link">
+      <img src="/assets/Images/iconUsuario.png" alt="Usuário" id="imgNav">
+    </a>
+  </div>
+</header>

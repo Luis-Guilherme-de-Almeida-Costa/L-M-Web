@@ -1,0 +1,22 @@
+<%- include('includes/headerNaoLogado') %>
+<%- include('includes/navLogado') %>
+
+<section class="containerIU">
+    <div class="titulo-IU">
+        <h1>OLÁ, <blue>USUÁRIO!</blue></h1>
+    </div>
+    <form class="container-IU" id="formCadastro" action="http://localhost:3000/register/register" method="POST">
+        <label for="nomeInput" class="titulo-inputs">Nome</label>
+        <input type="text" class="inputs-IU" id="nomeInput" name="nome" required>
+
+        <label for="cpfInput" class="titulo-inputs">CPF</label>
+        <input type="text" class="inputs-IU" id="cpfInput" name="cpf" required>
+
+        <label for="emailInput" class="titulo-inputs">Email</label>
+        <input type="email" class="inputs-IU" id="emailInput" name="email" required>
+        <%- include('includes/messagesError'); %>
+
+        <button type="submit" class="" id="cadastroBtn">SALVAR</button>
+    </form>
+</section>  
+<%- include('includes/footerSemContato')%>

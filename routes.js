@@ -7,6 +7,7 @@ const homeLoginController = require("./src/controllers/homeLoginController")
 const loginController = require("./src/controllers/loginController");
 const esqueciController = require("./src/controllers/esqueciController");
 const pagamentoController = require("./src/controllers/pagamentoController");
+const infoUsuarioController = require('./src/controllers/infoUsuarioController');
 const { loginRequired } = require('./src/middlewares/middleware');
 
 // Rotas da home
@@ -17,12 +18,14 @@ route.get('/home', loginRequired, homeLoginController.index);
 //Rota de pesquisa
 route.get('/home/search/index', searchController.index);
 
-//Rota de perfil
-route.get('/home/perfil/index', perfilController.index);
-
 //Rota de leitura
 route.get('/home/leitura/', leituraController.index)
 */
+
+//Rota de perfil
+// Erro com o path. Arrumar depois.
+route.get('/perfil/index', infoUsuarioController.index);
+
 // Rotas de login
 route.get('/login/index', loginController.index);
 route.post('/login/login', loginController.store);
