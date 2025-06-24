@@ -123,69 +123,6 @@ blue {
     align-self: center;
     margin-top: 20px;
 }
-
-.containerIU{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 80vh;
-}
-
-.container-IU{
-    width: 400px;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.container-IU button{
-    height: 500px;
-    width: 175px;
-    border: none;
-    background-color: #32bbff;
-    color: white;
-    border-radius: 8px;
-    /* box-shadow: 0px 0px 0px 0px; */
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.inputs-IU {
-    height: 350px;
-    width: 70%;
-    border: none;
-    background-color: #dedede;
-    color:#000000;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
-    margin-bottom: 15px;
-}
-
-.titulo-IU{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    font-size: 3vh;
-    height: 70px;
-    margin-bottom: 10px;
-    animation: animacaoDireita 1.25s;
-}
-
-#imgNav{
-    width: auto;
-    height: auto;
-}
 @keyframes animacaoEsquerda{
     from{
         opacity: 0;

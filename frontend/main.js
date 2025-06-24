@@ -13,9 +13,14 @@ cadastro.init();
 
 import './assets/css/styleGeneral.css';
 
+
 if (path === '/register/index' || path == "/login/index") {
   import('./assets/css/styleAutenticacao.css')
     .then(() => console.log("o.o"));
+}
+
+if (path === '/perfil/index'){
+  import ('./assets/css/infoUsuario.css').then(() => console.log("O.O"));
 }
 
 if (path === '/') {

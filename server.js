@@ -13,7 +13,6 @@ const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/midd
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'frontend')));
 
 app.use(session({
   secret: process.env.SECRET_SESSIONS,
