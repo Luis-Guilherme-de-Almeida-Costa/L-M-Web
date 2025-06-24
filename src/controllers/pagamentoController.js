@@ -6,7 +6,7 @@ exports.index = (req, res) => {
 
 exports.store = async (req, res) => {
     try {
-        const response = await api.post('/auth/payment/', {
+        const response = await api.post('/payment/index/', {
             email: req.session.email
         });
 
