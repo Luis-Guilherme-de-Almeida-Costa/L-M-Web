@@ -8,6 +8,9 @@ const loginController = require("./src/controllers/loginController");
 const esqueciController = require("./src/controllers/esqueciController");
 const pagamentoController = require("./src/controllers/pagamentoController");
 const infoUsuarioController = require('./src/controllers/infoUsuarioController');
+const boletoController = require('./src/controllers/boletoController');
+const pixController = require('./src/controllers/pixController');
+const cartaoController = require('./src/controllers/cartaoController');
 const { loginRequired } = require('./src/middlewares/middleware');
 
 // Rotas da home
@@ -37,18 +40,17 @@ route.post('/register/register', cadastroController.store);
 route.get('/login/esqueci/index', esqueciController.index);
 //route.get('/login/esqueci/esqueci', esqueciController.store);
 //pagamento
-route.get('/home/pagamento/index', loginRequired, pagamentoController.index);
-/*
+route.get('/pagamento/index', loginRequired, pagamentoController.index);
 
-route.get('/home/pagamento/boleto/index', loginRequired, boletoController.index);
-route.post('/home/pagamento/boleto/boleto', loginRequired, boletoController.store);
+route.get('/pagamento/boleto/index', loginRequired, boletoController.index);
+route.post('/pagamento/boleto/boleto', loginRequired, pagamentoController.store);
 
-route.get('/home/pagamento/cartao/index', loginRequired, cartaoController.index);
-route.post('/home/pagamento/cartao/cartao', loginRequired, cartaoController.store);
+route.get('/pagamento/cartao/index', loginRequired, cartaoController.index);
+route.post('/pagamento/cartao/cartao', loginRequired, pagamentoController.store);
 
-route.get('/home/pagamento/pix/index', loginRequired, pixController.index);
-route.get('/home/pagamento/pix/pix', loginRequired, pixController.store);
-*/
+route.get('/pagamento/pix/index', loginRequired, pixController.index);
+route.post('/pagamento/pix/pix', loginRequired, pagamentoController.store);
+
 
 // Rotas de contato
 

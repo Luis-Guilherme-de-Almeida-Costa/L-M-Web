@@ -1,3 +1,3 @@
 exports.index = (req, res) => {
-    res.render("pagarComBoleto");
+    res.render("pagarComBoleto", { path: 'A' });
 }

@@ -24,6 +24,15 @@ if (path === '/perfil/index'){
 }
 
 if (path === '/') {
-    import('./assets/css/styleNaoLogado.css').then(() => console.log("O.O"))
-    import('./assets/css/stylesFooter.css').then(() => console.log("O.O"))
+  import('./assets/css/styleNaoLogado.css').then(() => console.log("O.O"))
+  import('./assets/css/stylesFooter.css').then(() => console.log("O.O"))
+}
+
+if (path === '/pagamento/index') {
+  import('./assets/css/pagamento.css').then(() => console.log("O.O"))
+}
+
+if(path === '/pagamento/cartao/index' || path === '/pagamento/boleto/index' || path === '/pagamento/pix/index') {
+  import('./assets/css/pagamento.css').then(() => console.log("O.O"))
+  import('./assets/css/pagamentoComBoleto.css').then(() => console.log("O.O"))
 }

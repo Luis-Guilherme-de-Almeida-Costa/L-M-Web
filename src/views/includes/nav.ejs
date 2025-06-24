@@ -16,8 +16,16 @@
                <% } %>   
             </ul>
        </nav>
-       <div>
-            <a href="/login/index" id="sign-in" class="link">Entrar</a>
-            <a href="/register/index" id="sign-up" class="link">Cadastrar</a>
-       </div>
+       <%if(user) {%>
+          <div class="user-icon">
+               <a href="/perfil/index" class="link">
+                 <img src="/assets/Images/iconUsuario.png" alt="Usuário" id="imgNavUser">
+               </a>
+          </div>
+       <%} else {%>
+          <div>
+               <a href="/login/index" id="sign-in" class="link">Entrar</a>
+               <a href="/register/index" id="sign-up" class="link">Cadastrar</a>
+          </div>
+       <%}%>
 </header>

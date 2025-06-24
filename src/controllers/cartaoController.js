@@ -1,3 +1,3 @@
 exports.index = (req, res) => {
-    res.render("pagarComCartao");
+    res.render("pagarComCartao", { path: 'A' });
 }

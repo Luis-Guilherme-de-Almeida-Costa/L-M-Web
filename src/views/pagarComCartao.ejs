@@ -1,8 +1,8 @@
-<%- include(includes/headerNaoLogado) %>
-    
+<%- include('includes/headerNaoLogado') %>
+<%- include('includes/nav') %> 
     <section>
         <h1>Pagar com Cartão</h1>
-        <form class="formPagamento">
+        <form class="formPagamento" action="http://localhost:3000/pagamento/cartao/cartao" method="POST">
             <div class="cadastroFormulario">
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" placeholder="Digite seu nome" required>
@@ -33,7 +33,10 @@
                 <label for="telefone">Código de Segurança CVV:</label>
                 <input type="text" name="telefone" placeholder="Digite seu Telefone" required>
             </div>
+
+            <%- include('includes/messagesError') %>
+
+            <button type="submit" style="align-self: center;" class="botao">PAGAR</button>
         </form>
-        <button style="align-self: center;" class="botao">PAGAR</button>
    </section>
-<%- include(includes/footerSemContato)%>
+<%- include('includes/footerSemContato')%>
