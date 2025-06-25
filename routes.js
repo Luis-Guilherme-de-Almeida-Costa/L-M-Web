@@ -28,6 +28,7 @@ route.get('/home/leitura/', leituraController.index)
 //Rota de perfil
 // Erro com o path. Arrumar depois.
 route.get('/perfil/index', loginRequired, infoUsuarioController.index);
+route.post('/perfil/perfil', loginRequired, infoUsuarioController.update);
 
 // Rotas de login
 route.get('/login/index', loginController.index);

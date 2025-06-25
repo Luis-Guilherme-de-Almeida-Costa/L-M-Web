@@ -26,7 +26,7 @@ exports.store = async function(req, res) {
     req.session.user = response.data.user;
     req.session.email = response.data.email;
     //req.session.token = response.data.message.token;
-    req.session.save(function() {
+    return req.session.save(function() {
       return res.redirect('/');
     });
   } catch(error) {

@@ -5,18 +5,18 @@
     <div class="titulo-IU">
         <h1>OLÁ, <blue>USUÁRIO!</blue></h1>
     </div>
-    <form class="container-IU" id="formCadastro" action="http://localhost:3000/register/register" method="POST">
+    <form class="container-IU" id="formCadastro" action="http://localhost:3000/perfil/perfil" method="POST">
         <label for="nomeInput" class="titulo-inputs">Nome</label>
-        <input type="text" class="inputs-IU" id="nomeInput" name="nome">
+        <input type="text" class="inputs-IU" id="nomeInput" name="nome" value="<%= usuario.nome %>">
 
         <label for="cpfInput" class="titulo-inputs">CPF</label>
-        <input type="text" class="inputs-IU" id="cpfInput" name="cpf">
+        <input type="text" class="inputs-IU" id="cpfInput" name="cpf" value="<%= usuario.cpf %>">
 
         <label for="emailInput" class="titulo-inputs">Email</label>
-        <input type="email" class="inputs-IU" id="emailInput" name="email">
+        <input type="email" class="inputs-IU" id="emailInput" name="email" value="<%= usuario.email %>">
         <%- include('includes/messagesError'); %>
 
-        <button type="submit" class="" id="cadastroBtn">SALVAR</button>
+        <button type="submit" id="cadastroBtn">SALVAR</button>
     </form>
 </section>  
 <%- include('includes/footerSemContato')%>
