@@ -25,7 +25,7 @@ exports.update = async (req, res) => {
             email: req.session.email
         });
 
-        const response = await api.put('/auth/profile', {
+        const response = await api.put('/auth/profile/update', {
             id_pessoa: id.data.id_pessoa,
             nome: req.body.nome,
             cpf: req.body.cpf,
@@ -34,6 +34,8 @@ exports.update = async (req, res) => {
 
         req.session.user = req.body.nome;
         req.session.email = req.body.email;
+
+        req.flash('success', response.data.message);
 
         return req.session.save(function() {
             return res.redirect('/perfil/index');

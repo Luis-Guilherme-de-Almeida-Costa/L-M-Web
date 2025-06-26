@@ -123,6 +123,17 @@ blue {
     align-self: center;
     margin-top: 20px;
 }
+
+.successMsg{
+    color: rgb(0, 255, 85);
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 20px;
+}
+
 @keyframes animacaoEsquerda{
     from{
         opacity: 0;
