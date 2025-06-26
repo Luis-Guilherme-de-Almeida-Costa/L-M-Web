@@ -11,30 +11,31 @@
             <div class="cadastroFormulario">
 
                 <label for="telefone">Sobrenome:</label>
-                <input type="text" name="telefone" placeholder="Digite seu Telefone" required>
+                <input type="text" name="sobrenome" placeholder="Digite seu Telefone" required>
             </div>
 
             <div class="cadastroFormulario">
                 <label for="endereço">CPF:</label>
-                <input type="text" name="endereço" placeholder="Digite seu Endereço" required> 
+                <input type="text" name="cpf" placeholder="Digite seu Endereço" required> 
             </div>
             <div class="cadastroFormulario">
                 <label for="nome">Número de Cartão:</label>
-                <input type="text" name="nome" placeholder="Digite seu nome" required>
+                <input type="text" name="nomeCartao" placeholder="Digite seu nome" required>
             </div>
 
             <div class="cadastroFormulario">
 
                 <label for="telefone">Data de Validade MM/AA:</label>
-                <input type="text" name="telefone" placeholder="Digite seu Telefone" required>
+                <input type="text" name="validade" placeholder="Digite seu Telefone" required>
             </div>
             <div class="cadastroFormulario">
 
                 <label for="telefone">Código de Segurança CVV:</label>
-                <input type="text" name="telefone" placeholder="Digite seu Telefone" required>
+                <input type="text" name="cvv" placeholder="Digite seu Telefone" required>
             </div>
 
             <%- include('includes/messagesError') %>
+            <%- include('includes/messagesSuccess') %>
 
             <button type="submit" style="align-self: center;" class="botao">PAGAR</button>
         </form>
