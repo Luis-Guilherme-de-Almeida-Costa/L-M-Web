@@ -1,5 +1,7 @@
 <header>
-        <img src="../../../frontend/assets/Images/logo.png" alt="">
+     <a class="logo" href="/">
+          <img src="/assets/Images/logo.png" alt="">
+     </a>
         <nav>
             <ul>
                <li><a class="link" href="/">Home</a></li>
@@ -19,8 +21,7 @@
        <%if(user) {%>
           <div style="display: flex; justify-content: center; align-items: center;">
                <a href="/perfil/index" class="link" style="display: flex;">
-                 <h3>Olá <%= user.charAt(0).toUpperCase() + user.slice(1) %></h3>
-                 <img src="/assets/Images/iconUsuario.png" alt="Usuário" id="imgNavUser">
+                 <h3>Olá, <%= user.charAt(0).toUpperCase() + user.slice(1) %>!</h3>
                </a>
           </div>
        <%} else {%>

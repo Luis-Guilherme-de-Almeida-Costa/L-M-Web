@@ -43,14 +43,23 @@ route.get('/login/esqueci/index', esqueciController.index);
 //pagamento
 route.get('/pagamento/index', loginRequired, pagamentoController.index);
 
-route.get('/pagamento/boleto/index', loginRequired, boletoController.index);
-route.post('/pagamento/boleto/boleto', loginRequired, boletoController.store);
+route.get('/pagamento/boleto/leitor/index', loginRequired, boletoController.index);
+route.post('/pagamento/boleto/leitor/boleto', loginRequired, boletoController.store);
 
-route.get('/pagamento/cartao/index', loginRequired, cartaoController.index);
-route.post('/pagamento/cartao/cartao', loginRequired, cartaoController.store);
+route.get('/pagamento/boleto/autor/index', loginRequired, boletoController.index);
+route.post('/pagamento/boleto/autor/boleto', loginRequired, boletoController.store);
 
-route.get('/pagamento/pix/index', loginRequired, pixController.index);
-route.post('/pagamento/pix/pix', loginRequired, pixController.store);
+route.get('/pagamento/cartao/leitor/index', loginRequired, cartaoController.index);
+route.post('/pagamento/cartao/leitor/cartao', loginRequired, cartaoController.store);
+
+route.get('/pagamento/cartao/autor/index', loginRequired, cartaoController.index);
+route.post('/pagamento/cartao/autor/cartao', loginRequired, cartaoController.store);
+
+route.get('/pagamento/pix/leitor/index', loginRequired, pixController.index);
+route.post('/pagamento/pix/leitor/pix', loginRequired, pixController.store);
+
+route.get('/pagamento/pix/autor/index', loginRequired, pixController.index);
+route.post('/pagamento/pix/autor/pix', loginRequired, pixController.store);
 
 
 // Rotas de contato

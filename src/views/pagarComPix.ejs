@@ -1,17 +1,16 @@
 <%- include('includes/headerNaoLogado') %>
 <%- include('includes/nav') %> 
-    <section>
-        <h1>Pagar com PIX</h1>
-        <form class="formPagamento" action="http://localhost:3000/pagamento/pix/pix" method="POST">
-            <div class="cadastroFormulario">
-                <label for="nome">Nome completo:</label>
-                <input type="text" name="nome" placeholder="Digite seu nome" required>
-            </div>
-
-            <div class="cadastroFormulario">
-                <label for="telefone">CPF:</label>
-                <input type="text" name="cpf" placeholder="Digite seu Telefone" required>
-            </div>
+    <section class="containerIU container">
+        <div class="titulo-IU">
+            <h1>Pagar com PIX</h1>
+        </div>
+        <form class="container-IU" action="http://localhost:3000/pagamento/pix/leitor/pix" method="POST">
+            
+            <label for="nome"> <h2>Nome completo:</h2></label>
+            <input type="text" class="inputs-IU" name="nome" placeholder="Digite seu nome" required>
+            
+            <label for="telefone"><h2>CPF:</h2></label>
+            <input type="text" class="inputs-IU" name="cpf" placeholder="Digite seu Telefone" required>
 
             <%- include('includes/messagesError') %>
             <%- include('includes/messagesSuccess') %>
