@@ -1,8 +1,10 @@
+const api = require('../../services/axios');
+
 exports.index = (req, res) => {
     res.render("pagarComCartao", { path: 'A' });
 }
 
-exports.store = (req, res) => {
+exports.store = async (req, res) => {
     let errors = [];
 
     const {
@@ -29,11 +31,8 @@ exports.store = (req, res) => {
         errors.push("CPF deve conter exatamente 11 dígitos numéricos.");
     }
 
-    
-    if (!/^\d{13,19}$/.test(numeroCartao)) {
+    if (numeroCartao.length > 19 && numeroCartao.length < 13) {
         errors.push("Número do cartão deve conter entre 13 e 19 dígitos numéricos.");
-    } else if (!validaLuhn(numeroCartao)) {
-        errors.push("Número de cartão inválido.");
     }
 
     if (!/^\d{2}\/\d{2}$/.test(validade)) {
@@ -62,25 +61,27 @@ exports.store = (req, res) => {
             return res.redirect(req.get('Referrer') || '/pagamento/cartao/index');
         });
     }
-    
-    return req.flash("success", "Pagamento processado com sucesso!");
-}
 
-function validaLuhn(numeroCartao) {
-    let soma = 0;
-    let alternar = false;
-
-    for (let i = numeroCartao.length - 1; i >= 0; i--) {
-        let n = parseInt(numeroCartao[i]);
-
-        if (alternar) {
-            n *= 2;
-            if (n > 9) n -= 9;
-        }
-
-        soma += n;
-        alternar = !alternar;
+    try {
+        const response = await api.post('/payment/index/', {
+            email: req.session.email
+        });
+        
+        req.session.ass = response.data.message;
+        req.flash("success", "Pagamento processado com sucesso!");
+        
+        return req.session.save(function() {
+            return res.redirect(req.get('Referrer') || '/pagamento/cartao/index');
+        });
+    } catch (error) {
+        if (error.response) {
+            req.flash('errors', error.response.data.errors);
+          } else {
+            req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
+            console.log(error)
+          }
+        return req.session.save(function(){
+            return res.redirect(req.get('Referrer'));
+        });
     }
-
-    return soma % 10 === 0;
 }

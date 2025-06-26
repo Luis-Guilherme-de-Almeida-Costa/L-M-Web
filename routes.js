@@ -44,22 +44,13 @@ route.get('/login/esqueci/index', esqueciController.index);
 route.get('/pagamento/index', loginRequired, pagamentoController.index);
 
 route.get('/pagamento/boleto/index', loginRequired, boletoController.index);
-route.post('/pagamento/boleto/boleto', loginRequired, async (req, res) => {
-    await boletoController.store(req, res);
-    await pagamentoController.store(req, res);
-});
+route.post('/pagamento/boleto/boleto', loginRequired, boletoController.store);
 
 route.get('/pagamento/cartao/index', loginRequired, cartaoController.index);
-route.post('/pagamento/cartao/cartao', loginRequired, async (req, res) => {
-    await cartaoController.store(req, res);
-    await pagamentoController.store(req, res);
-});
+route.post('/pagamento/cartao/cartao', loginRequired, cartaoController.store);
 
 route.get('/pagamento/pix/index', loginRequired, pixController.index);
-route.post('/pagamento/pix/pix', loginRequired, async (req, res) => {
-    await pixController.store(req, res);
-    await pagamentoController.store(req, res);
-});
+route.post('/pagamento/pix/pix', loginRequired, pixController.store);
 
 
 // Rotas de contato

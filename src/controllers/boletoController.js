@@ -1,14 +1,16 @@
+const api = require('../../services/axios');
+
 exports.index = (req, res) => {
     res.render("pagarComBoleto", { path: 'A' });
 }
 
-exports.store = (req, res) => {
+exports.store = async (req, res) => {
     const errors = [];
 
-    const { nome, email, endereco, cep, documento } = req.body;
+    const { nome, email, endereco, cep, cpf } = req.body;
 
-    if (!nome || nome.length < 3 || nome.length > 100) {
-        errors.push("Nome completo deve ter entre 3 e 100 caracteres.");
+    if (!nome || nome.length < 3 || nome.length > 55) {
+        errors.push("Nome completo deve ter entre 3 e 55 caracteres.");
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -24,7 +26,7 @@ exports.store = (req, res) => {
         errors.push("CEP deve conter exatamente 8 dígitos numéricos.");
     }
 
-    if (!/^\d{11}$/.test(documento) && !/^\d{14}$/.test(documento)) {
+    if (!/^\d{11}$/.test(cpf) && !/^\d{14}$/.test(cpf)) {
         errors.push("Informe um CPF com 11 dígitos ou CNPJ com 14 dígitos numéricos.");
     }
 
@@ -35,5 +37,26 @@ exports.store = (req, res) => {
         });
     }
 
-    return res.flash("success", "Pagamento com boleto processado com sucesso!");
+    try {
+        const response = await api.post('/payment/index/', {
+            email: req.session.email
+        });
+        
+        req.session.ass = response.data.message;
+        req.flash("success", "Pagamento processado com sucesso!");
+        
+        return req.session.save(function() {
+            res.redirect(req.get('Referrer') || '/pagamento/boleto/index');
+        });
+    } catch (error) {
+        if (error.response) {
+            req.flash('errors', error.response.data.errors);
+          } else {
+            req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
+            console.log(error)
+          }
+        return req.session.save(function(){
+            return res.redirect(req.get('Referrer'));
+        });
+    }
 };

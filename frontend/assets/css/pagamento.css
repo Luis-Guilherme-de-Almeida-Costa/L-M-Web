@@ -74,9 +74,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 300px;
+    width: 350px;
     min-width: 250px;
     padding: 12px 20px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btnFormaDePagamento:hover {
+    transition: #9f9f9f 0.5s ease;
+    background-color: #9f9f9f;
 }
 
 .paymentContainer {

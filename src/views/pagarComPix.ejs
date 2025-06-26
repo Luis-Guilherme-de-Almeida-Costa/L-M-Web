@@ -2,16 +2,15 @@
 <%- include('includes/nav') %> 
     <section>
         <h1>Pagar com PIX</h1>
-        <form class="formPagamento">
-            <div class="cadastroFormulario" action="http://localhost:3000/pagamento/pix/pix" method="POST">
+        <form class="formPagamento" action="http://localhost:3000/pagamento/pix/pix" method="POST">
+            <div class="cadastroFormulario">
                 <label for="nome">Nome completo:</label>
                 <input type="text" name="nome" placeholder="Digite seu nome" required>
             </div>
 
             <div class="cadastroFormulario">
-
                 <label for="telefone">CPF:</label>
-                <input type="text" name="telefone" placeholder="Digite seu Telefone" required>
+                <input type="text" name="cpf" placeholder="Digite seu Telefone" required>
             </div>
 
             <%- include('includes/messagesError') %>
