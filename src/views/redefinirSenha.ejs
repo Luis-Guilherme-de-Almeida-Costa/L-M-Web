@@ -1,0 +1,22 @@
+<%- include('includes/headerNaoLogado') %>
+<%- include('includes/nav') %>  
+    <section class="container">
+        <div class="titulo-autenticacao">
+            <h1><blue>REDEFINIR SENHA</blue><h1/>
+        </div>
+
+        <form class="container-login" id="formLogin" action="http://localhost:3000/login/esqueci/redefinir/redefinir/<%= token %>" method="POST">
+            <label for="emailInput" class="titulo-inputs">Nova Senha</label>
+            <input type="password" class="inputs" id="emailInput" name="senha" required>
+
+            <label for="senhaInput" class="titulo-inputs">Confirmar Senha</label>
+            <input type="password" class="inputs" id="senhaInput" name="confirmarSenha" required>
+
+            <%- include('includes/messagesError') %>
+
+            <button type="submit" class="botao" id="loginBtn">Entrar</button>
+
+            <p>© 2025 - L&M</p>
+        </form>
+    </section>
+<%- include('includes/footerSemContato')%>

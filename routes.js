@@ -11,6 +11,7 @@ const infoUsuarioController = require('./src/controllers/infoUsuarioController')
 const boletoController = require('./src/controllers/boletoController');
 const pixController = require('./src/controllers/pixController');
 const cartaoController = require('./src/controllers/cartaoController');
+const redefinirController = require('./src/controllers/redefinirController');
 const { loginRequired } = require('./src/middlewares/middleware');
 
 // Rotas da home
@@ -39,7 +40,10 @@ route.get('/register/index', cadastroController.index);
 route.post('/register/register', cadastroController.store);
 
 route.get('/login/esqueci/index', esqueciController.index);
-//route.get('/login/esqueci/esqueci', esqueciController.store);
+route.post('/login/esqueci/esqueci', esqueciController.store);
+
+route.get('/login/esqueci/redefinir/index/:token', redefinirController.index);
+route.post('/login/esqueci/redefinir/redefinir/:token', redefinirController.store);
 //pagamento
 route.get('/pagamento/index', loginRequired, pagamentoController.index);
 

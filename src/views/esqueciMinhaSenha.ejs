@@ -1,14 +1,16 @@
-<%- include(includes/headerNaoLogado) %>
-<%- include(includes/nav) %> 
+<%- include('includes/headerNaoLogado') %>
+<%- include('includes/nav') %> 
     <section class="container">
         <div class="titulo-autenticacao">
             <h1><blue>ESQUECI MINHA SENHA</blue><h1/>
         </div>
-        <form class="container-esqueceu" id="formEsqueceu">
+        <form class="container-esqueceu" id="formEsqueceu" action="http://localhost:3000/login/esqueci/esqueci" method="POST">
             <label for="emailInput" class="titulo-inputs">Email</label>
             <input type="email" class="inputs" id="esqueceuInput" name="email" required>
             <button type="submit" class="botao" id="loginBtn">Enviar</button>
+            <%- include('includes/messagesError'); %>
+            <%- include('includes/messagesSuccess'); %>
             <p>© 2025 - L&M</p>
         </form>
     </section>
-<%- include(includes/footerSemContato)%>
+<%- include('includes/footerSemContato')%>

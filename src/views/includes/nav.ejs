@@ -4,26 +4,34 @@
      </a>
         <nav>
             <ul>
-               <li><a class="link" href="/">Home</a></li>
-               <%if(path) {%>
+                 <%if(path) {%>
                     <%if(path == "A") {%>
-                         <li><a class="link" href="/">Sobre Nós</a></li>
-                         <li><a class="link" href="/">Preços</a></li>
-                         <li><a class="link" href="/">Contatos</a></li>
+                         <li><a class="link navStatus" href="/">Home</a></li>
+                         <li><a class="link navStatus" href="/">Sobre Nós</a></li>
+                         <li><a class="link navStatus" href="/">Preços</a></li>
+                         <li><a class="link navStatus" href="/">Contatos</a></li>
                     <% } else { %>
-                         <li><a class="link" href="#sobre-nos">Sobre Nós</a></li>
-                         <li><a class="link" href="#precos">Preços</a></li>
-                         <li><a class="link" href="#contatos">Contatos</a></li>
+                         <li><a class="link navStatus" href="/">Home</a></li>
+                         <li><a class="link navStatus" href="#sobre-nos">Sobre Nós</a></li>
+                         <li><a class="link navStatus" href="#precos">Preços</a></li>
+                         <li><a class="link navStatus" href="#contatos">Contatos</a></li>
                     <% } %>  
                <% } %>   
             </ul>
        </nav>
        <%if(user) {%>
-          <div style="display: flex; justify-content: center; align-items: center;">
-               <a href="/perfil/index" class="link" style="display: flex;">
-                 <h3>Olá, <%= user.charAt(0).toUpperCase() + user.slice(1) %>!</h3>
-               </a>
-          </div>
+          <ul class="user-nav">
+               <li class="dropdown">
+                 <a href="#" class="dropdown-toggle">
+                   Olá, <%= user.charAt(0).toUpperCase() + user.slice(1) %> ▼
+                 </a>
+                 <ul class="dropdown-menu">
+                   <li><a href="/perfil/index"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Perfil</a></li>
+                   <li class="divider"></li>
+                   <li><a href="/login/logout"><i class="fa-solid fa-power-off" style="margin-right: 10px;"></i> Sair</a></li>
+                 </ul>
+               </li>
+          </ul>
        <%} else {%>
           <div>
                <a href="/login/index" id="sign-in" class="link">Entrar</a>

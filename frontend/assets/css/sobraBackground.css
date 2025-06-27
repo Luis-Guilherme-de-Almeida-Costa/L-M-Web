@@ -1,3 +1,7 @@
 html {
     background: linear-gradient(white, #dedede);
 }
+
+.container {
+    background: none;
+}

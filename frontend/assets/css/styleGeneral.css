@@ -44,7 +44,7 @@ ul{
     display:flex;
     justify-content: space-around;
     list-style: none;
-    width: 30%;
+    width: 250px;
     padding: 0px;
     align-items: center;
 }
@@ -78,7 +78,7 @@ blue {
     align-items: center;
     transition: color 0.5s ease, box-shadow 0.5s ease;
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .botao:hover{
@@ -176,4 +176,71 @@ blue {
 p{
     font-size: smaller;
     color: rgb(97, 97, 97);
+}
+
+.user-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* alinha à direita */
+  }
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    padding: 10px 15px;
+    color: #000000;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: color 0.3s;
+    border-radius: 4px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+}
+
+.divider {
+    height: 1px;
+    background-color: #ccc;
+    margin: 5px 0;
+    pointer-events: none;
+}
+
+.navStatus {
+    margin-left: 10px;
+    margin-right: 10px;    
 }
