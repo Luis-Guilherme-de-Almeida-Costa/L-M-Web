@@ -3,7 +3,7 @@
           <img src="/assets/Images/logo.png" alt="">
      </a>
         <nav>
-            <ul>
+            <ul class="nav-middle">
                  <%if(path) {%>
                     <%if(path == "A") {%>
                          <li><a class="link navStatus" href="/">Home</a></li>
@@ -22,20 +22,62 @@
        <%if(user) {%>
           <ul class="user-nav">
                <li class="dropdown">
-                 <a href="#" class="dropdown-toggle">
+                 <a href="#" class="dropdown-toggle main">
                    Olá, <%= user.charAt(0).toUpperCase() + user.slice(1) %> ▼
                  </a>
+                 <a href="#" class="dropdown-toggle none">
+                   <i class="fa-solid fa-bars" style="font-size: 28px;"></i>
+                 </a>
                  <ul class="dropdown-menu">
+                    <%if(path) {%>
+                         <%if(path == "A") {%>
+                              <li class="none"><a href="/">Home</a></li>
+                              <li class="none"><a href="/">Sobre Nós</a></li>
+                              <li class="none"><a href="/">Preços</a></li>
+                              <li class="none"><a href="/">Contatos</a></li>
+                         <% } else { %>
+                              <li class="none"><a href="/">Home</a></li>
+                              <li class="none"><a href="#sobre-nos">Sobre Nós</a></li>
+                              <li class="none"><a href="#precos">Preços</a></li>
+                              <li class="none"><a href="#contatos">Contatos</a></li>
+                         <% } %>  
+                    <% } %>   
+                   <li class="divider none"></li>
                    <li><a href="/perfil/index"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Perfil</a></li>
                    <li class="divider"></li>
-                   <li><a href="/login/logout"><i class="fa-solid fa-power-off" style="margin-right: 10px;"></i> Sair</a></li>
+                   <li><a href="/login/logout"><i class="fa-solid fa-power-off" style="margin-right: 10px;"></i>Sair</a></li>
                  </ul>
                </li>
           </ul>
        <%} else {%>
-          <div>
-               <a href="/login/index" id="sign-in" class="link">Entrar</a>
-               <a href="/register/index" id="sign-up" class="link">Cadastrar</a>
-          </div>
+          <ul class="user-nav-nao-logado">
+               <li class="dropdown">
+                 <a href="#" class="dropdown-toggle none">
+                   <i class="fa-solid fa-bars" style="font-size: 28px;"></i>
+                 </a>
+                 <ul class="dropdown-menu-nao-logado">
+                    <%if(path) {%>
+                         <%if(path == "A") {%>
+                              <li class="none"><a href="/">Home</a></li>
+                              <li class="none"><a href="/">Sobre Nós</a></li>
+                              <li class="none"><a href="/">Preços</a></li>
+                              <li class="none"><a href="/">Contatos</a></li>
+                         <% } else { %>
+                              <li class="none"><a href="/">Home</a></li>
+                              <li class="none"><a href="#sobre-nos">Sobre Nós</a></li>
+                              <li class="none"><a href="#precos">Preços</a></li>
+                              <li class="none"><a href="#contatos">Contatos</a></li>
+                         <% } %>  
+                    <% } %>   
+                   <li class="divider none"></li>
+                   <li><a href="/login/index"><i class="fa-solid fa-user" style="margin-right: 10px;"></i>Entrar</a></li>
+                   <li class="divider"></li>
+                   <li><a href="/register/index"><i class="fa-solid fa-power-off" style="margin-right: 10px;"></i>Cadastrar</a></li>
+                 </ul>
+               </li>
+          </ul>
+
+          <a href="/login/index" id="sign-in" class="link">Entrar</a>
+          <a href="/register/index" id="sign-up" class="link">Cadastrar</a>
        <%}%>
 </header>

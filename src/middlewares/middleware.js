@@ -27,10 +27,25 @@ exports.loginRequired = (req, res, next) => {
   next();
 };
 
+exports.assRequired = (req, res, next) => {
+  if(!req.session.ass) {
+    req.flash('errors', 'Você precisa ser um assinante para acessar essa página!');
+    req.session.save(() => res.redirect('/pagamento/index'));
+    return;
+  }
+}
+
+exports.alreadyLoggedIn = (req, res, next) => {
+  if(req.session.email) {
+    return req.session.save(() => res.redirect('/'));
+  }
+
+  next();
+}
+
 exports.alreadyAss = (req, res, next) => {
   if(req.session.ass) {
-    req.session.save(() => res.redirect('/home'));
-    return;
+    return req.session.save(() => res.redirect('/home'));
   } 
 
   next();

@@ -1,7 +1,6 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-  if(req.session.email) return res.render('homeSemLogin');
   return res.render('login', { path: 'A' });
 };
 
@@ -14,7 +13,7 @@ exports.store = async function(req, res) {
 
     req.session.user = response.data.user;
     req.session.email = response.data.email;
-    //req.session.token = response.data.message.token;
+    
     return req.session.save(function() {
       return res.redirect('/');
     });

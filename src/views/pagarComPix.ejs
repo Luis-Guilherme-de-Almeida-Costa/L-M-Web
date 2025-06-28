@@ -2,9 +2,9 @@
 <%- include('includes/nav') %> 
     <section class="containerIU container">
         <div class="titulo-IU">
-            <h1>Pagar com PIX</h1>
+            <h1>Pagar com <blue>PIX</blue></h1>
         </div>
-        <form class="container-IU" action="http://localhost:3000/pagamento/pix/leitor/pix" method="POST">
+        <form class="container-IU" action="http://localhost:3000<%=url%>" method="POST">
             
             <label for="nome"> <h2>Nome completo:</h2></label>
             <input type="text" class="inputs-IU" name="nome" placeholder="Digite seu nome" required>

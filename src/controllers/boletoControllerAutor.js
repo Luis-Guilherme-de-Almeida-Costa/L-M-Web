@@ -1,7 +1,7 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-    res.render("pagarComBoleto", { path: 'A', url: '/pagamento/boleto/leitor/boleto' });
+    res.render("pagarComBoleto", { path: 'A', url: '/pagamento/boleto/autor/boleto' });
 }
 
 exports.store = async (req, res) => {
@@ -33,20 +33,20 @@ exports.store = async (req, res) => {
     if (errors.length > 0) {
         req.flash('errors', errors);
         return req.session.save(function(){
-            return res.redirect(req.get('Referrer') || '/pagamento/boleto/leitor/index');
+            return res.redirect(req.get('Referrer') || '/pagamento/boleto/autor/index');
         });
     }
 
     try {
-        const response = await api.post('/payment/index/', {
+        const response = await api.post('/payment/autor/', {
             email: req.session.email
         });
         
-        req.session.ass = response.data.message;
+        req.session.autor = response.data.message;
         req.flash("success", "Pagamento processado com sucesso!");
         
         return req.session.save(function() {
-            res.redirect(req.get('Referrer') || '/pagamento/boleto/leitor/index');
+            res.redirect(req.get('Referrer') || '/pagamento/boleto/autor/index');
         });
     } catch (error) {
         if (error.response) {

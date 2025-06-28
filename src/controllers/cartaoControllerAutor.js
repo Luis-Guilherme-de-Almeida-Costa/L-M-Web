@@ -1,7 +1,7 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-    res.render("pagarComCartao", { path: 'A', url: '/pagamento/cartao/leitor/cartao' });
+    res.render("pagarComCartao", { path: 'A', url: '/pagamento/cartao/autor/cartao' });
 }
 
 exports.store = async (req, res) => {
@@ -58,20 +58,20 @@ exports.store = async (req, res) => {
     if (errors.length > 0) {
         req.flash('errors', errors);
         return req.session.save(function(){
-            return res.redirect(req.get('Referrer') || '/pagamento/cartao/leitor/index');
+            return res.redirect(req.get('Referrer') || '/pagamento/cartao/autor/index');
         });
     }
 
     try {
-        const response = await api.post('/payment/index/', {
+        const response = await api.post('/payment/autor/', {
             email: req.session.email
         });
         
-        req.session.ass = response.data.message;
+        req.session.autor = response.data.message;
         req.flash("success", "Pagamento processado com sucesso!");
         
         return req.session.save(function() {
-            return res.redirect(req.get('Referrer') || '/pagamento/cartao/leitor/index');
+            return res.redirect(req.get('Referrer') || '/pagamento/cartao/autor/index');
         });
     } catch (error) {
         if (error.response) {

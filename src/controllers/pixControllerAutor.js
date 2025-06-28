@@ -1,7 +1,7 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-    res.render("pagarComPix", { path: 'A', url: '/pagamento/pix/leitor/pix' });
+    res.render("pagarComPix", { path: 'A', url:'/pagamento/pix/autor/pix'});
 }
 
 exports.store = async (req, res) => {
@@ -20,21 +20,21 @@ exports.store = async (req, res) => {
     if (errors.length > 0) {
         req.flash('errors', errors);
         return req.session.save(function(){
-            return res.redirect(req.get('Referrer') || '/pagamento/pix/leitor/index');
+            return res.redirect(req.get('Referrer') || '/pagamento/pix/autor/index');
         });
     }
 
    
     try {
-        const response = await api.post('/payment/index/', {
+        const response = await api.post('/payment/autor/', {
             email: req.session.email
         });
         
-        req.session.ass = response.data.message;
+        req.session.autor = response.data.message;
         req.flash("success", "Pagamento processado com sucesso!");
     
         return req.session.save(function() {
-            return res.redirect('/pagamento/pix/leitor/index');
+            return res.redirect('/pagamento/pix/autor/index');
         });
     } catch (error) {
         if (error.response) {
@@ -44,7 +44,7 @@ exports.store = async (req, res) => {
             console.log(error)
           }
         return req.session.save(function(){
-            return res.redirect(req.get('Referrer'));
+            return res.redirect(req.get('/pagamento/pix/autor/index'));
         });
     }
 }

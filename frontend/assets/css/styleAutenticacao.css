@@ -18,7 +18,6 @@ O container possui um tamanho diferente na página login, basta utilizar o crân
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 80vh;
 }
 
 .container-cadastro{
@@ -31,6 +30,7 @@ O container possui um tamanho diferente na página login, basta utilizar o crân
     background-color: white;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    margin-bottom: 50px;
 }
 
 .container-login{
@@ -75,12 +75,26 @@ O container possui um tamanho diferente na página login, basta utilizar o crân
     animation: animacaoDireita 1.25s;
 }
 
+.titulo-autenticacao h1{
+    font-size: 40px;
+}
+
 #cadastroBtn{
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #esqueceuInput {
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+    .container-login {
+        width: 300px;
+    }
+
+    .container-cadastro {
+        width: 300px;
+    }
 }

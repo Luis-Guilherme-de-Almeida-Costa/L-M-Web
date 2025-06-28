@@ -72,9 +72,6 @@
     margin-top: 100px;
 }
 
-
-/* Responsividade */
-
 @media screen and (max-width: 768px) {
     .parte1, .parte2 {
         font-size: 2.5rem;
