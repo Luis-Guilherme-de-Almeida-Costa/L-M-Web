@@ -6,7 +6,7 @@ exports.index = async (req, res) => {
             email: req.session.email
         });
 
-        res.render("infoUsuario", { path: "naoLogado", pathStatus: 'A', usuario: response.data, url: "/perfil/perfil"});
+        res.render("infoUsuario", { path: "logado", pathStatus: 'LI', usuario: response.data, url: '/perfil/perfil/logado' });
     } catch(error) {
         if (error.response) {
             req.flash('errors', error.response.data.errors);

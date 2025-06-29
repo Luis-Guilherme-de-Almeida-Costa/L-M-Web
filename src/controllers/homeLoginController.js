@@ -1,3 +1,3 @@
 exports.index = (req, res) => {
-    res.render("homeComLogin");
+    return res.render("homeComLogin", { path: "logado", pathStatus: 'L' });
 }

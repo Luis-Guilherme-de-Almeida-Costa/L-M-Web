@@ -5,7 +5,7 @@
     <div class="titulo-IU">
         <h1>OLÁ, <blue><%= usuario.nome %>!</blue></h1>
     </div>
-    <form class="container-IU" id="formCadastro" action="http://localhost:3000/perfil/perfil" method="POST">
+    <form class="container-IU" id="formCadastro" action="http://localhost:3000<%=url%>" method="POST">
         <label for="nomeInput" class="titulo-inputs">Nome</label>
         <input type="text" class="inputs-IU" id="nomeInput" name="nome" value="<%= usuario.nome %>">
 

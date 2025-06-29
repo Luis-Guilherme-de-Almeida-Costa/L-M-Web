@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 exports.index = (req, res) => {
-    res.render("esqueciMinhaSenha", { path: "A" });
+    res.render("esqueciMinhaSenha", { path: "naoLogado", pathStatus: 'A' });
 }
 
 

@@ -1,0 +1,29 @@
+<%- include('includes/headerNaoLogado') %>
+<%- include('includes/nav') %>  
+    <div class="search-bar">
+        <form action="/home/search/index" id="form-search" method="GET">
+            <div class="barra-pesquisa">
+                <input type="text" name="searchData" placeholder="Pesquise aqui..." />
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="resultado-titulo">Resultados de acordo com sua pesquisa:</div>
+
+    <% if (livros.length > 0) { %>
+        <% livros.forEach(livro => { %>
+            <div class="livro">
+                <img src="<%= livro.imagem %>" alt="Capa do livro" />
+            <div class="livro-info">
+                    <h3><%= livro.titulo %></h3>
+                    <p><%= livro.descricao %></p>
+                </div>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>Nenhum livro encontrado.</p>
+    <% } %>
+<%- include('includes/footerSemContato')%>

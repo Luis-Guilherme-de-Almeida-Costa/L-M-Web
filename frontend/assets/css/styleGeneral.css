@@ -225,7 +225,7 @@ p{
     display: flex;
     align-items: center;
     margin-left: auto;
-    min-width: 100px; 
+    min-width: 0px; 
 }
 
 .dropdown {
@@ -277,11 +277,11 @@ p{
     white-space: nowrap;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
+.dropdown-menu.show {
+  display: block;
 }
 
-.dropdown:hover .dropdown-menu-nao-logado {
+.dropdown-menu-nao-logado.show {
     display: none;
 }
 

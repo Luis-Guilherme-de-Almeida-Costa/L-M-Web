@@ -1,0 +1,73 @@
+<%- include('includes/headerNaoLogado') %>
+<%- include('includes/nav') %> 
+    <section class="container">
+        <div id="container-home"> 
+            <div id="home">
+                <h1><blue>Aproveite</blue> seu lugar <br/><blue>Ideal</blue></h1>
+                <form action="/home/search/index" id="form-search" method="GET">
+                    <div class="barra-pesquisa">
+                        <input type="text" name="searchData" placeholder="Pesquise aqui..." />
+                        <button type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>    
+    </section>
+
+    <section class="catalogo-container">
+        <div class="barra-pesquisa-catalogo">
+            <input type="text" placeholder="Pesquise aqui..." />
+            <i class="fa fa-search"></i>
+        </div>
+
+        <div class="secao-catalogo">
+            <h2>Principais</h2>
+            <div class="scroll-horizontal">
+                <% for(let i = 0; i < 5; i++) { %>
+                    <div class="item-catalogo">
+                    <div class="imagem"></div>
+                    <p>Lorem Ipsum</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="secao-catalogo">
+            <h2>Lorem Ipsum</h2>
+            <div class="scroll-horizontal">
+                <% for(let i = 0; i < 6; i++) { %>
+                    <div class="item-catalogo">
+                    <div class="imagem"></div>
+                    <p>Lorem Ipsum</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="secao-catalogo">
+            <h2>Últimos Vistos</h2>
+            <div class="scroll-horizontal">
+                <% for(let i = 0; i < 5; i++) { %>
+                    <div class="item-catalogo">
+                    <div class="imagem"></div>
+                    <p>Lorem Ipsum</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="secao-catalogo">
+            <h2>Sua Biblioteca</h2>
+            <div class="scroll-horizontal">
+                <% for(let i = 0; i < 6; i++) { %>
+                    <div class="item-catalogo">
+                    <div class="imagem"></div>
+                    <p>Lorem Ipsum</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+<%- include('includes/footerComContato') %>

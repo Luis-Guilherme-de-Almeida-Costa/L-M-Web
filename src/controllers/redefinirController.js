@@ -7,7 +7,7 @@ exports.index = (req, res) => {
   if(!token) {
     res.status(400).send('Link expirado ou inválido.');
   }
-  return res.render('redefinirSenha', { path: 'A', token });
+  return res.render('redefinirSenha', { path: "naoLogado", pathStatus: 'A', token });
 };
 
 exports.store = async function(req, res) {

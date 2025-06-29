@@ -2,22 +2,23 @@
 <%- include('includes/nav') %> 
     <section class="paymentContainer container">
         <h1 class="mainH1">Escolha a sua forma de pagamento</h1>
+        <%- include('includes/messagesError'); %>
         <div class="teste">
-            <button onclick="window.location.href='<%=url%>'" class="btnFormaDePagamento">
+            <button onclick="window.location.href='<%=url1%>'" class="btnFormaDePagamento">
                 <img src="/assets/Images/image 2.png" alt="">
                 <h1>Cartão de crédito</h1>
                 <img src="/assets/Images/Sort Right.png" alt="">
             </button>
         </div>
         <div class="teste">
-            <button onclick="window.location.href='<%=url%>'" class="btnFormaDePagamento">
+            <button onclick="window.location.href='<%=url2%>'" class="btnFormaDePagamento">
                 <img src="/assets/Images/Barcode.png" alt="">
                 <h1>Boleto</h1>
                 <img src="/assets/Images/Sort Right.png" alt="">
             </button>
         </div>
         <div class="teste">
-            <button onclick="window.location.href='<%=url%>'" class="btnFormaDePagamento">
+            <button onclick="window.location.href='<%=url3%>'" class="btnFormaDePagamento">
                 <img src="/assets/Images/Pix.png" alt="">
                 <h1>Pix</h1>
                 <img src="/assets/Images/Sort Right.png" alt="">

@@ -1,7 +1,7 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-    res.render("pagarComBoleto", { path: 'A', url: '/pagamento/boleto/leitor/boleto' });
+    res.render("pagarComBoleto", { path: "naoLogado", pathStatus: 'A', url: '/pagamento/boleto/leitor/boleto' });
 }
 
 exports.store = async (req, res) => {
@@ -42,7 +42,6 @@ exports.store = async (req, res) => {
             email: req.session.email
         });
         
-        req.session.ass = response.data.message;
         req.flash("success", "Pagamento processado com sucesso!");
         
         return req.session.save(function() {

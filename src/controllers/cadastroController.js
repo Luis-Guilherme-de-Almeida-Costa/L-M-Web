@@ -1,7 +1,7 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-    res.render("cadastro", { path: 'A' });
+    res.render("cadastro", { path: "naoLogado", pathStatus: 'A' });
 }
 
 exports.store = async (req, res) => {

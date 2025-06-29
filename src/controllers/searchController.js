@@ -1,3 +1,9 @@
 exports.index = (req, res) => {
-    res.render("search");
+    if(req.query.searchData) {
+        
+
+        res.render("search", { path: "logado", pathStatus: 'LI' });
+    } else {
+        res.redirect('/home')
+    }
 }

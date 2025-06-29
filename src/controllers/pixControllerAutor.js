@@ -1,7 +1,7 @@
 const api = require('../../services/axios');
 
 exports.index = (req, res) => {
-    res.render("pagarComPix", { path: 'A', url:'/pagamento/pix/autor/pix'});
+    res.render("pagarComPix", { path: "naoLogado", pathStatus: 'A', url:'/pagamento/pix/autor/pix'});
 }
 
 exports.store = async (req, res) => {
@@ -30,7 +30,6 @@ exports.store = async (req, res) => {
             email: req.session.email
         });
         
-        req.session.autor = response.data.message;
         req.flash("success", "Pagamento processado com sucesso!");
     
         return req.session.save(function() {
