@@ -16,10 +16,10 @@
     <% if (livros.length > 0) { %>
         <% livros.forEach(livro => { %>
             <div class="livro">
-                <img src="<%= livro.imagem %>" alt="Capa do livro" />
+                <img src="" alt="Capa do livro" />
             <div class="livro-info">
                     <h3><%= livro.titulo %></h3>
-                    <p><%= livro.descricao %></p>
+                    <p><%= livro.situacao %></p>
                 </div>
             </div>
         <% }) %>
