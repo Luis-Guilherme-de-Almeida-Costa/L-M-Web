@@ -16,7 +16,7 @@
     <% if (livros.length > 0) { %>
         <% livros.forEach(livro => { %>
             <div class="livro">
-                <img src="" alt="Capa do livro" />
+                <img src="http://localhost:3002/livros/<%= livro.id_livro %>/capa" alt="Capa do livro" />
             <div class="livro-info">
                     <h3><%= livro.titulo %></h3>
                     <p><%= livro.situacao %></p>

@@ -27,7 +27,7 @@ route.get('/home', loginRequired, autorOuAssinanteRequired, homeLoginController.
 
 
 //Rota de pesquisa
-route.get('/home/search/index', searchController.index);
+route.get('/home/search/index', loginRequired, autorOuAssinanteRequired, searchController.index);
 
 //Rota de leitura
 route.get('/home/leitura/', leituraController.index)

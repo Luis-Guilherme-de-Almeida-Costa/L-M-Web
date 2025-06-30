@@ -9,9 +9,7 @@ exports.index = async (req, res) => {
                 search
             });
 
-            console.log(response.data);
-
-            res.render("search", { path: "logado", pathStatus: 'LI', livros: response.data });
+            res.render("search", { path: "logado", pathStatus: 'LI', livros: response.data.livro });
         } catch (error) {
             if (error.response) {
                 req.flash('errors', error.response.data.errors);

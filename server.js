@@ -1,4 +1,5 @@
 require('dotenv').config();
+const cors = require('cors');
 const express = require('express');
 const app = express();
 const session = require('express-session');
@@ -10,8 +11,21 @@ const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/midd
 
 // app.use(helmet()); // helmet começou a causar problemas no localhost por conta da falta de SSL
 
-app.use(express.urlencoded({ extended: true }));
+const whiteList = [ 'http://localhost:3002', 'http://localhost:3000' ];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not Allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
@@ -30,7 +44,6 @@ app.set('view engine', 'ejs');
 
 
 app.use(middlewareGlobal);
-
 
 app.use(routes);
 
