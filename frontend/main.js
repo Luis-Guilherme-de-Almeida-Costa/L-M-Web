@@ -49,3 +49,7 @@ if(path.includes('/home/search')) {
   import('./assets/css/styleSearch.css').then(() => console.log("O.O"))
   import('./assets/css/sobraBackground.css').then(() => console.log("O.O"))
 }
+
+if(path.includes('/home/leitura/')) {
+  import('./assets/css/styleLeitura.css').then(() => console.log("O.O"))
+}

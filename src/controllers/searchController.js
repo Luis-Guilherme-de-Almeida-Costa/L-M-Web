@@ -9,7 +9,8 @@ exports.index = async (req, res) => {
                 search
             });
 
-            res.render("search", { path: "logado", pathStatus: 'LI', livros: response.data.livro });
+
+            res.render("search", { path: "logado", pathStatus: 'LI', livros: response.data.livros });
         } catch (error) {
             if (error.response) {
                 req.flash('errors', error.response.data.errors);
@@ -17,7 +18,7 @@ exports.index = async (req, res) => {
                 req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
             }
             return req.session.save(function(){
-                //arruamar return res.redirect(req.get('/home/search/index'));
+                return res.redirect(req.get('/home/search/index'));
             });
         }
     } else {

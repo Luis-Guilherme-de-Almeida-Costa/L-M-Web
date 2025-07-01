@@ -30,7 +30,7 @@ route.get('/home', loginRequired, autorOuAssinanteRequired, homeLoginController.
 route.get('/home/search/index', loginRequired, autorOuAssinanteRequired, searchController.index);
 
 //Rota de leitura
-route.get('/home/leitura/', leituraController.index)
+route.get('/home/leitura/:id', leituraController.index)
 
 
 //Rota de perfil

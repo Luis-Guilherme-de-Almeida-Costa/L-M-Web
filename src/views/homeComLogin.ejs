@@ -17,55 +17,63 @@
     </section>
 
     <section class="catalogo-container">
-        <div class="barra-pesquisa-catalogo">
-            <input type="text" placeholder="Pesquise aqui..." />
-            <i class="fa fa-search"></i>
+        <div class="barra-pesquisa-container">
+            <form action="/home/search/index" id="form-search" method="GET">
+                <div class="barra-pesquisa">
+                    <input type="text" name="searchData" placeholder="Pesquise aqui..." />
+                    <button type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
         </div>
 
         <div class="secao-catalogo">
-            <h2>Principais</h2>
+            <h1>Principais</h1>
             <div class="scroll-horizontal">
-                <% for(let i = 0; i < 5; i++) { %>
-                    <div class="item-catalogo">
-                    <div class="imagem"></div>
-                    <p>Lorem Ipsum</p>
-                    </div>
+                <% if (livros.length > 0) { %>
+                    <% livros.forEach(livro => { %>
+                        <a href="/home/leitura/<%= livro.id_livro %>" class="link">
+                            <div class="item-catalogo">
+                            <div class="imagem"><img src="http://localhost:3002/livros/<%= livro.id_livro %>/capa" alt="Capa do livro" /></div>
+                            <h2><%=livro.titulo%></h2>
+                            </div>
+                        </a>
+                    <% }) %>
+                <% } else { %>
+                    <p>Nenhum livro encontrado.</p>
                 <% } %>
             </div>
         </div>
 
         <div class="secao-catalogo">
-            <h2>Lorem Ipsum</h2>
+            <h1>Ação</h1>
+            <div class="scroll-horizontal">
+                <% if (acao.length > 0) { %>
+                    <% acao.forEach(livro => { %>
+                        <a href="/home/leitura/<%= livro.id_livro %>" class="link">
+                            <div class="item-catalogo">
+                            <div class="imagem"><img src="http://localhost:3002/livros/<%= livro.id_livro %>/capa" alt="Capa do livro" /></div>
+                            <h2><%=livro.titulo%></h2>
+                            </div>
+                        </a>
+                    <% }) %>
+                <% } else { %>
+                    <p>Nenhum livro encontrado.</p>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="secao-catalogo">
+            <h1>Sua Biblioteca</h1>
             <div class="scroll-horizontal">
                 <% for(let i = 0; i < 6; i++) { %>
-                    <div class="item-catalogo">
-                    <div class="imagem"></div>
-                    <p>Lorem Ipsum</p>
-                    </div>
-                <% } %>
-            </div>
-        </div>
-
-        <div class="secao-catalogo">
-            <h2>Últimos Vistos</h2>
-            <div class="scroll-horizontal">
-                <% for(let i = 0; i < 5; i++) { %>
-                    <div class="item-catalogo">
-                    <div class="imagem"></div>
-                    <p>Lorem Ipsum</p>
-                    </div>
-                <% } %>
-            </div>
-        </div>
-
-        <div class="secao-catalogo">
-            <h2>Sua Biblioteca</h2>
-            <div class="scroll-horizontal">
-                <% for(let i = 0; i < 6; i++) { %>
-                    <div class="item-catalogo">
-                    <div class="imagem"></div>
-                    <p>Lorem Ipsum</p>
-                    </div>
+                    <a href="" class="link">
+                        <div class="item-catalogo">
+                        <div class="imagem"></div>
+                        <p>Lorem Ipsum</p>
+                        </div>
+                    </a>
                 <% } %>
             </div>
         </div>

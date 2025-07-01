@@ -19,6 +19,7 @@
 #form-search {
     margin-top: 50px;
     width: 650px;
+    margin-bottom: 50px;
 }
 
 #home {
@@ -110,7 +111,7 @@
 }
 
 .secao-catalogo h2 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 15px;
 }
 
@@ -135,7 +136,7 @@
 .item-catalogo {
   flex: 0 0 auto;
   width: 200px;
-  background-color: #ccc;
+  height: 335px;
   border-radius: 10px;
   padding: 10px;
   text-align: center;
@@ -152,11 +153,15 @@
 .imagem {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: #999;
   border-radius: 8px;
   margin-bottom: 10px;
 }
 
+.imagem img {
+  width: 180px;
+  height: 240px;
+  border-radius: 10px;
+}
 
 @media (max-width: 700px) {
     #home {
@@ -183,4 +188,10 @@
     #home h1 {
         font-size: 40px;
     }
+}
+
+.barra-pesquisa-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

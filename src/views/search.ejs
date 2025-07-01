@@ -11,19 +11,27 @@
         </form>
     </div>
 
-    <div class="resultado-titulo">Resultados de acordo com sua pesquisa:</div>
-
-    <% if (livros.length > 0) { %>
-        <% livros.forEach(livro => { %>
-            <div class="livro">
-                <img src="http://localhost:3002/livros/<%= livro.id_livro %>/capa" alt="Capa do livro" />
-            <div class="livro-info">
-                    <h3><%= livro.titulo %></h3>
-                    <p><%= livro.situacao %></p>
-                </div>
-            </div>
-        <% }) %>
-    <% } else { %>
-        <p>Nenhum livro encontrado.</p>
-    <% } %>
+    <section class="container">
+        <div class="resultado-titulo">Resultados de acordo com sua pesquisa:</div>
+        
+        <div class="container-livros">
+            <% if (livros.length > 0) { %>
+                <% livros.forEach(livro => { %>
+                    <div class="container-scroll">
+                        <a href="/home/leitura/<%= livro.id_livro %>" class="link livro-link">
+                            <div class="livro">
+                                <img src="http://localhost:3002/livros/<%= livro.id_livro %>/capa" alt="Capa do livro" />
+                            <div class="livro-info">
+                                    <h3><%= livro.titulo %></h3>
+                                    <p><%= livro.descricao %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>Nenhum livro encontrado.</p>
+            <% } %>
+        </div>
+    </section>
 <%- include('includes/footerSemContato')%>
