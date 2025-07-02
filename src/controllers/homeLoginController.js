@@ -6,7 +6,11 @@ exports.index = async (req, res) => {
 
         const acao = await api.get("/acao");
 
-        return res.render("homeComLogin", { path: "logado", pathStatus: 'L', livros: response.data.livros, acao: acao.data.livros });
+        const favoritoResponse = await api.post('/leitura/favorites/index', {
+            email: req.session.email
+        });
+
+        return res.render("homeComLogin", { path: "logado", pathStatus: 'L', livros: response.data.livros, acao: acao.data.livros, favoritos: favoritoResponse.data.favoritos });
     } catch (error) {
         if (error.response) {
             req.flash('errors', error.response.data.errors);
