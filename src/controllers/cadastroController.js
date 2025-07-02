@@ -26,6 +26,10 @@ exports.store = async (req, res) => {
             return res.redirect('/login/index');
         });
     } catch(error){
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            req.flash('errors', 'Email já existe.')
+        }
+        
         if (error.response) {
             console.log(error.response.data.errors);
 

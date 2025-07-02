@@ -2,28 +2,60 @@
 <%- include('includes/nav') %>
 
 <div class="container">
-    <h1>Lorem Ipsum</h1>
+  <div class="capa">
+      <img src="http://localhost:3002/livros/<%= livros.id_livro %>/capa" alt="">
+    </div>
+    <h1><%= livros.titulo %></h1>
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-      when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-      It has survived not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged.
+      <%= livros.descricao %>
     </p>
 
     <div class="tags">
-      <span class="tag">Lorem</span>
-      <span class="tag">Lorem</span>
-      <span class="tag">Lorem</span>
-      <span class="tag">Lorem</span>
-      <span class="tag">Lorem</span>
-      <span class="tag">Lorem</span>
+      <% for(let i of livros.categoria) {%>
+        <span class="tag"><%=i%></span>
+      <%}%>
     </div>
 
     <div class="buttons">
-      <button>Visualizar</button>
-      <button class="icon-button"><i class="fas fa-book"></i></button>
+      <a href="/home/leitura/title/<%=livros.id_livro%>">
+        <button type="submit">Visualizar</button>
+      </a>
+      <a href="/home/leitura/title/favorite/<%=livros.id_livro%>">
+        <button class="icon-button"><i class="fas fa-book"></i></button>
+      </a>
+      <%- include('includes/messagesSuccess') %>
+      <%- include('includes/messagesError') %>
     </div>
+</div>
+
+<div class="container-none">
+  <img src="http://localhost:3002/livros/<%= livros.id_livro %>/capa" class="capa-img" alt="">
+  <div class="container-content">
+    <div class="capa-none">
+      <h1 class="titulo-none"><%= livros.titulo %></h1>
+    </div>
+    <p>
+      <%= livros.descricao %>
+    </p>
+
+    <div class="tags">
+      <% for(let i of livros.categoria) {%>
+        <span class="tag"><%=i%></span>
+      <%}%>
+    </div>
+
+    <div class="buttons">
+      <a href="/home/leitura/title/<%=livros.id_livro%>">
+        <button type="submit">Visualizar</button>
+      </a>
+      <a href="/home/leitura/title/favorite/<%=livros.id_livro%>">
+        <button class="icon-button"><i class="fas fa-book"></i></button>
+      </a>
+
+      <%- include('includes/messagesSuccess') %>
+      <%- include('includes/messagesError') %>
+    </div>
+  </div>
 </div>
   
 <%- include('includes/footerSemContato')%>

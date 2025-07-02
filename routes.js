@@ -18,6 +18,7 @@ const cartaoControllerAutor = require('./src/controllers/cartaoControllerAutor')
 const redefinirController = require('./src/controllers/redefinirController');
 const searchController = require('./src/controllers/searchController');
 const leituraController = require('./src/controllers/leituraController');
+const leituraPrincipalController = require('./src/controllers/leituraPrincipalController');
 const { loginRequired, autorOuAssinanteRequired, alreadyUser, alreadyUserPerfil, alreadyLoggedIn} = require('./src/middlewares/middleware');
 const pagamentoControllerAutor = require('./src/controllers/pagamentoControllerAutor');
 
@@ -30,7 +31,9 @@ route.get('/home', loginRequired, autorOuAssinanteRequired, homeLoginController.
 route.get('/home/search/index', loginRequired, autorOuAssinanteRequired, searchController.index);
 
 //Rota de leitura
-route.get('/home/leitura/:id', leituraController.index)
+route.get('/home/leitura/:id', loginRequired, autorOuAssinanteRequired, leituraController.index)
+route.get('/home/leitura/title/:id', loginRequired, autorOuAssinanteRequired, leituraPrincipalController.index)
+route.get('/home/leitura/title/favorite/:id', loginRequired, autorOuAssinanteRequired, leituraController.store)
 
 
 //Rota de perfil

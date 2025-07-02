@@ -1,16 +1,15 @@
 const api = require('../../services/axios');
 
 exports.index = async (req, res) => {
-    if(req.query.searchData) {
-        const search = req.query.searchData;
-
+    if(req.params.id) {
+        const livroId = req.params.id;
+        
         try {
-            const response = await api.post("/search", {
-                search
-            });
-
-
-            res.render("search", { path: "logado", pathStatus: 'LI', livros: response.data.livros });
+            const response = await api.post('/leitura', {
+                id: livroId
+            })
+            
+            return res.render("leituraPrincipal", { path: "logado", pathStatus: 'LI', livros: response.data.livros[0] });
         } catch (error) {
             if (error.response) {
                 req.flash('errors', error.response.data.errors);
@@ -18,9 +17,9 @@ exports.index = async (req, res) => {
                 req.flash('errors', ['Erro desconhecido. Verifique a conexão com o servidor.'])
             }
             return req.session.save(function(){
-                return res.redirect(req.get('/home/search/index'));
+                return res.redirect(req.get('/home/'));
             });
-        }
+        } 
     } else {
         return res.redirect('/home')
     }

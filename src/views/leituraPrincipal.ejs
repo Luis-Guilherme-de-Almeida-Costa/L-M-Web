@@ -1,0 +1,97 @@
+<%- include('includes/headerNaoLogado') %>
+<%- include('includes/nav') %>
+
+<main style="padding: 20px; min-height: 100vh;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h1 style="font-size: 2.5rem; font-weight: bold;"><%=livros.titulo%></h1>
+
+        <div id="pdf-container" style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+            <canvas id="pdf-canvas" style="width: 100%;"></canvas>
+        </div>
+
+        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+            <button id="prevPage" class="botao"><i class="fa-solid fa-arrow-left"></i></button>
+            <span id="page-info" style="align-self: center;"></span>
+            <button id="nextPage" class="botao"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+    const url = `http://localhost:3002/leitura/pdf/<%= livros.id_livro %>`
+    let pdfDoc = null,
+        pageNum = 1,
+        pageRendering = false,
+        pageNumPending = null,
+        scale = 1.5,
+        canvas = document.getElementById('pdf-canvas'),
+        ctx = canvas.getContext('2d');
+
+    function renderPage(num) {
+        pageRendering = true;
+        pdfDoc.getPage(num).then(function(page) {
+            const viewport = page.getViewport({ scale: scale });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            const renderTask = page.render(renderContext);
+
+            renderTask.promise.then(function() {
+                pageRendering = false;
+                document.getElementById("page-info").innerText = `Página ${pageNum} de ${pdfDoc.numPages}`;
+
+                if (pageNumPending !== null) {
+                    renderPage(pageNumPending);
+                    pageNumPending = null;
+                }
+            });
+        });
+    }
+
+    function queueRenderPage(num) {
+        if (pageRendering) {
+            pageNumPending = num;
+        } else {
+            renderPage(num);
+        }
+    }
+
+    function onPrevPage() {
+        if (pageNum <= 1) return;
+        pageNum--;
+        queueRenderPage(pageNum);
+    }
+
+    function onNextPage() {
+        if (pageNum >= pdfDoc.numPages) return;
+        pageNum++;
+        queueRenderPage(pageNum);
+    }
+
+    document.getElementById('prevPage').addEventListener('click', onPrevPage);
+    document.getElementById('nextPage').addEventListener('click', onNextPage);
+    document.getElementById('pdf-container').addEventListener('click', onNextPage);
+
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            const file = new Blob([blob], { type: 'application/pdf' });
+            const fileURL = URL.createObjectURL(file);
+
+            const loadingTask = pdfjsLib.getDocument(fileURL);
+            loadingTask.promise.then(function(pdf) {
+                pdfDoc = pdf;
+                document.getElementById("page-info").innerText = `Página 1 de ${pdfDoc.numPages}`;
+                renderPage(pageNum);
+            });
+        })
+        .catch(err => {
+            console.error("Erro ao carregar o PDF:", err);
+        });
+</script>
+<%- include('includes/footerSemContato')%>
