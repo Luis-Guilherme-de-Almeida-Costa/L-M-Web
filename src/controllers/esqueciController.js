@@ -32,6 +32,9 @@ exports.store = async (req, res) => {
         user: process.env.EMAIL_USER,   
         pass: process.env.PASS,       
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
     
     const mailOptions = {
